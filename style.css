@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+}
+
+.center {
+    margin: auto;
+    width: 80%;
+    border: 1px solid gray;
+    padding: 10px;
+  }
