@@ -10,5 +10,11 @@ module.exports = {
   dialect: process.env.DB_DIALECT || 'postgres',
   storage: './__tests__/database.sqlite',
   logging: false,
-  operatorsAliases: false
+  operatorsAliases: false,
+  logging: false,
+  define: {
+    timestamps: true,
+    underscored: true,
+    underscoredAll: true
+  }
 };
