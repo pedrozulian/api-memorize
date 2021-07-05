@@ -1,0 +1,23 @@
+{
+  "name": "api-memorize",
+  "version": "1.0.0",
+  "description": "API para a aplicação web Memorize.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrozulian/api-memorize.git"
+  },
+  "keywords": [],
+  "author": "Pedro Zulian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedrozulian/api-memorize/issues"
+  },
+  "homepage": "https://github.com/pedrozulian/api-memorize#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
