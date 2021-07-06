@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     thirty_days: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'Flashcards',
+    modelName: 'flashcards',
   });
   return Flashcards;
 };
