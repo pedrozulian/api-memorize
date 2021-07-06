@@ -1,9 +1,9 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = new Sequelize();
 
-class FolderListFlashcards extends Model {}
+class FolderListFlashcard extends Model {}
 
-FolderListFlashcards.init({
+FolderListFlashcard.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,

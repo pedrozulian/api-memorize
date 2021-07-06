@@ -1,9 +1,9 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = new Sequelize();
 
-class Flashcards extends Model {}
+class Flashcard extends Model {}
 
-Flashcards.init({
+Flashcard.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
