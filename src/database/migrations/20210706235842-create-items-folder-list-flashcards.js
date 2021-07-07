@@ -9,6 +9,7 @@ module.exports = {
       },
       id_list: {
         type: {
+          allowNull: false,
           type: Sequelize.INTEGER,
           references: { model: 'list_flashcards', key: 'id' }
         }
