@@ -4,21 +4,13 @@ module.exports = {
     await queryInterface.createTable('items_list_flashcards', {
       id_list: {
         allowNull: false,
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         references: { model: 'list_flashcards', key: 'id' }
       },
       id_flashcard: {
         allowNull: false,
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         references: { model: 'flashcards', key: 'id' }
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },

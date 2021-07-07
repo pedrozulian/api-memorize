@@ -8,11 +8,9 @@ module.exports = {
         references: { model: 'folder_list_flashcards', key: 'id' }
       },
       id_list: {
-        type: {
-          allowNull: false,
-          type: Sequelize.INTEGER,
-          references: { model: 'list_flashcards', key: 'id' }
-        }
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'list_flashcards', key: 'id' }
       }
     });
   },
