@@ -3,14 +3,12 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Flashcards extends Model {
-    static associate(models) {}
+  class Flashcard extends Model {
+    static associate(models) {
+      Flashcard.hasMany(models.ItemListFlashcard, { foreignKey: 'id_flashcard' });
+    }
   };
-  Flashcards.init({
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
-    },
+  Flashcard.init({
     question: DataTypes.STRING,
     answer: DataTypes.STRING,
     one_day: DataTypes.BOOLEAN,
@@ -18,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     thirty_days: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'flashcards',
+    modelName: 'Flashcard',
   });
-  return Flashcards;
+  return Flashcard;
 };

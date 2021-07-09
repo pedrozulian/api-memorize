@@ -1,41 +1,32 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('flashcards', {
+    await queryInterface.createTable('list_flashcards', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      question: {
+      id_user: {
         allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'users', key: 'id' }
+      },
+      name: {
         type: Sequelize.STRING
       },
-      answer: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      one_day: {
-        type: Sequelize.BOOLEAN
-      },
-      seven_days: {
-        type: Sequelize.BOOLEAN
-      },
-      thirty_days: {
-        type: Sequelize.BOOLEAN
-      },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('flashcards');
+    await queryInterface.dropTable('list_flashcards');
   }
 };

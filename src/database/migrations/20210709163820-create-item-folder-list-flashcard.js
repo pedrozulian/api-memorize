@@ -1,20 +1,16 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('list_flashcards', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      id_user: {
+    await queryInterface.createTable('items_folder_list_flashcards', {
+      id_folder: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'users', key: 'id'}
+        references: { model: 'folder_list_flashcards', key: 'id' }
       },
-      name: {
-        type: Sequelize.STRING
+      id_list: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'list_flashcards', key: 'id' }
       },
       createdAt: {
         allowNull: false,
@@ -27,6 +23,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('list_flashcards');
+    await queryInterface.dropTable('items_folder_list_flashcards');
   }
 };
