@@ -4,6 +4,10 @@ const app = require('../../src/app');
 const truncate = require('../utils/truncate');
 
 describe('CRUD of users', () => {
+    beforeEach(async () => {
+        await User.destroy({ truncate: true, force: true });
+    });
+    
     it('should be create a new user on route /users', async () => {
         const response = await request(app)
             .post('/users')
@@ -16,7 +20,7 @@ describe('CRUD of users', () => {
         expect(response.status).toBe(201);
     });
 
-    it('should get a user by id on route /users', async() => {
+    it('should get a user by id on route /users', async () => {
         const user = await User.create({
             name: 'Maria',
             email: 'maria@mail.com',
