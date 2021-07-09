@@ -1,7 +1,6 @@
 const { User } = require('../../src/models');
 const request = require('supertest');
 const app = require('../../src/app');
-const truncate = require('../utils/truncate');
 
 describe('CRUD of users', () => {
     beforeEach(async () => {
