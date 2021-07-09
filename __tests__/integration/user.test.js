@@ -13,6 +13,19 @@ describe('CRUD of users', () => {
                 password: '123qwe'
             });
         
+        expect(response.status).toBe(201);
+    });
+
+    it('should get a user by id on route /users', async() => {
+        const user = await User.create({
+            name: 'Maria',
+            email: 'maria@mail.com',
+            password: '321qwe'
+        });
+
+        const response = await request(app)
+            .get(`/users/${user.id}`);
+
         expect(response.status).toBe(200);
     });
 });
