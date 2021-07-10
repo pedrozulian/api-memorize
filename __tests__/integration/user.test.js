@@ -44,4 +44,21 @@ describe('CRUD of users', () => {
         
         expect(response.status).toBe(200);
     });
+
+    it('should be update datas of user by id on route /users', async () => {
+        const user = await User.create({
+            name: 'Pedro',
+            email: 'pedro@mail.com',
+            password: '1233aa'
+        });
+
+        const response = await request(app)
+            .patch(`/users/${user.id}`)
+            .send({
+                name: 'Pedro Zulian',
+                password: 'qwe123'
+            });
+        
+        expect(response.status).toBe(200);
+    });
 });
