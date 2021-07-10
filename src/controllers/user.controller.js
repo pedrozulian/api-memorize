@@ -30,6 +30,18 @@ class UserController {
             return res.status(500).send({ error: error.message });
         }
     }
+
+    async update(req, res) {
+        try {
+            if (req.body) {
+                await User.update(req.body, { where: { id: Number(req.params.idUser) }});
+                return res.status(200).send({ message: 'User updated' });
+            }
+            return res.status(400).send({ error: 'Please, give data needed to update' });
+        } catch (error) {
+            return res.status(500).send({ error: error.message });
+        }
+    }
 }
 
 module.exports = new UserController();
