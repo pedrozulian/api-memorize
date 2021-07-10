@@ -31,4 +31,17 @@ describe('CRUD of users', () => {
 
         expect(response.status).toBe(200);
     });
+
+    it('should delete a user by id on route /users', async () => {
+        const user = await User.create({
+            name: 'Carlos',
+            email: 'carlos@mail.com',
+            password: '123321'
+        });
+
+        const response = await request(app)
+            .delete(`/users/${user.id}`);
+        
+        expect(response.status).toBe(200);
+    });
 });
