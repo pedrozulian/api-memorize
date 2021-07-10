@@ -25,5 +25,16 @@ module.exports = (sequelize, DataTypes) => {
       user.password = await bcrypt.hash(user.password, 8);
     }
   });
+
+  User.beforeBulkUpdate(async (user) => {
+    if (user.attributes.password) {
+      user.attributes.password = await bcrypt.hash(user.attributes.password, 8);
+    }
+  });
+
+  User.prototype.validPassword = (password) => {
+    return bcrypt.compareSync(password, this.password);
+  }
+
   return User;
 };
