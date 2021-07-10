@@ -7,4 +7,6 @@ router.get('/:idUser', UserController.getById);
 
 router.delete('/:idUser', UserController.delete);
 
+router.patch('/:idUser', UserController.update);
+
 module.exports = router;
