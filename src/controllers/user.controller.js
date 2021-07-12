@@ -16,7 +16,12 @@ class UserController {
     async getById(req, res) {
         try {
             const user = await User.findOne({ where: { id: Number(req.params.idUser) }});
-            return res.status(200).send(user);
+            return res.status(200).send({
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                createdAt: user.createdAt
+            });
         } catch (error) {
             return res.status(500).send({ error: error.message });
         }
