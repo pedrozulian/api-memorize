@@ -5,8 +5,8 @@ router.post('/', UserController.create);
 
 router.get('/:idUser', UserController.getById);
 
-router.delete('/:idUser', UserController.delete);
-
 router.patch('/:idUser', UserController.update);
+
+router.delete('/:idUser', UserController.delete);
 
 module.exports = router;
