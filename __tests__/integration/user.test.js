@@ -2,9 +2,11 @@ const { User } = require('../../src/models');
 const request = require('supertest');
 const app = require('../../src/app');
 
+const token = process.env.BEARER_TOKEN_TEST;
+
 describe('CRUD of users', () => {
     beforeEach(async () => {
-        await User.destroy({ truncate: true, force: true });
+        await User.destroy({ where: { email: !'ad@min' }, truncate: true, force: true });
     });
     
     it('should be create a new user on route /users', async () => {
@@ -27,7 +29,8 @@ describe('CRUD of users', () => {
         });
 
         const response = await request(app)
-            .get(`/users/${user.id}`);
+            .get(`/users/${user.id}`)
+            .auth(token, { type: 'bearer' });
 
         expect(response.status).toBe(200);
     });
@@ -40,7 +43,8 @@ describe('CRUD of users', () => {
         });
 
         const response = await request(app)
-            .delete(`/users/${user.id}`);
+            .delete(`/users/${user.id}`)
+            .auth(token, { type: 'bearer' });
         
         expect(response.status).toBe(200);
     });
@@ -54,6 +58,7 @@ describe('CRUD of users', () => {
 
         const response = await request(app)
             .patch(`/users/${user.id}`)
+            .auth(token, { type: 'bearer' })
             .send({
                 name: 'Pedro Zulian',
                 password: 'qwe123'
